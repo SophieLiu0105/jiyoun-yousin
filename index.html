@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Where is Home — Lyon Choi and the Reality Narration of Overseas Chinese in Southeast Asia</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='white'/><path d='M20 50 Q 50 20, 80 50' stroke='%231a1a1a' stroke-width='3' fill='none'/><path d='M20 65 Q 50 35, 80 65' stroke='%23888' stroke-width='2' fill='none'/></svg>">
+<style>
+  /* ===== Reset ===== */
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --bg: #ffffff;
+    --text: #1a1a1a;
+    --text-secondary: #888888;
+    --line: #eaeaea;
+    --accent: #2d2d2d;
+    --max-width: 780px;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    font-family: "Helvetica Neue", Helvetica, Arial, "Segoe UI", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.8;
+    font-size: 16px;
+    font-weight: 300;
+  }
+
+  /* ===== Layout ===== */
+  .container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  section {
+    padding: 120px 0;
+  }
+
+  /* ===== Hero ===== */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 60px 32px;
+    position: relative;
+  }
+
+  .hero-exhibition-label {
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    margin-bottom: 48px;
+  }
+
+  .hero-title {
+    font-family: "Times New Roman", Times, Georgia, serif;
+    font-size: clamp(48px, 8vw, 80px);
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    margin-bottom: 24px;
+    line-height: 1.1;
+    font-style: italic;
+  }
+
+  .hero-subtitle {
+    font-family: "Times New Roman", Times, Georgia, serif;
+    font-size: clamp(16px, 2.5vw, 22px);
+    font-weight: 400;
+    color: var(--text-secondary);
+    letter-spacing: 0.02em;
+    margin-bottom: 16px;
+    line-height: 1.5;
+  }
+
+  .hero-english {
+    font-family: "Times New Roman", Georgia, serif;
+    font-size: 13px;
+    color: var(--text-secondary);
+    font-style: italic;
+    letter-spacing: 0.03em;
+    margin-bottom: 64px;
+    max-width: 560px;
+    line-height: 1.6;
+  }
+
+  .hero-meta {
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 2;
+    letter-spacing: 0.03em;
+  }
+
+  .hero-scroll-hint {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    animation: fadeBounce 2s ease-in-out infinite;
+  }
+
+  @keyframes fadeBounce {
+    0%, 100% { opacity: 0.4; transform: translateX(-50%) translateY(0); }
+    50% { opacity: 1; transform: translateX(-50%) translateY(8px); }
+  }
+
+  /* ===== Section Headers ===== */
+  .section-label {
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  .section-title {
+    font-family: "Times New Roman", Times, Georgia, serif;
+    font-size: clamp(28px, 4vw, 38px);
+    font-weight: 400;
+    letter-spacing: 0.01em;
+    margin-bottom: 48px;
+    line-height: 1.3;
+  }
+
+  /* ===== Preface ===== */
+  .preface {
+    border-top: 1px solid var(--line);
+  }
+
+  .preface-text {
+    font-size: 16px;
+    line-height: 2;
+    color: var(--text);
+    margin-bottom: 24px;
+    text-align: justify;
+  }
+
+  .preface-text:first-of-type::first-letter {
+    font-family: "Times New Roman", Georgia, serif;
+    font-size: 3.5em;
+    float: left;
+    line-height: 1;
+    margin-right: 12px;
+    margin-top: 6px;
+    font-weight: 400;
+  }
+
+  .preface-signature {
+    margin-top: 48px;
+    text-align: right;
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 2;
+    font-style: italic;
+  }
+
+  /* ===== Timeline ===== */
+  .timeline-section {
+    background: #fafafa;
+  }
+
+  .timeline {
+    position: relative;
+    padding-left: 40px;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 6px;
+    top: 14px;
+    bottom: 14px;
+    width: 1px;
+    background: var(--line);
+  }
+
+  .timeline-item {
+    position: relative;
+    padding-bottom: 48px;
+  }
+
+  .timeline-item:last-child {
+    padding-bottom: 0;
+  }
+
+  .timeline-dot {
+    position: absolute;
+    left: -40px;
+    top: 12px;
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    background: var(--bg);
+    border: 1px solid var(--text-secondary);
+    transform: translateX(0px);
+  }
+
+  .timeline-year {
+    font-family: "Times New Roman", Georgia, serif;
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 8px;
+    letter-spacing: 0.02em;
+  }
+
+  .timeline-event {
+    font-size: 15px;
+    color: var(--text);
+    line-height: 1.8;
+  }
+
+  .timeline-place {
+    font-size: 11px;
+    color: var(--text-secondary);
+    margin-top: 4px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  /* ===== Gallery ===== */
+  .gallery {
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+  }
+
+  .gallery-item {
+    text-align: center;
+  }
+
+  .gallery-image-wrapper {
+    margin-bottom: 24px;
+    background: #f5f5f5;
+    padding: 20px;
+  }
+
+  .gallery-image-wrapper img {
+    width: 100%;
+    height: auto;
+    display: block;
+    cursor: zoom-in;
+  }
+
+  .gallery-caption {
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.8;
+  }
+
+  .gallery-caption-title {
+    font-family: "Times New Roman", Georgia, serif;
+    font-size: 16px;
+    color: var(--text);
+    margin-bottom: 4px;
+    font-style: italic;
+  }
+
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+
+  /* ===== Journey ===== */
+  .journey-section {
+    background: var(--accent);
+    color: #ffffff;
+  }
+
+  .journey-section .section-label {
+    color: rgba(255,255,255,0.5);
+  }
+
+  .journey-section .section-title {
+    color: #ffffff;
+  }
+
+  .journey-intro {
+    font-size: 15px;
+    opacity: 0.7;
+    line-height: 1.9;
+    margin-bottom: 48px;
+    max-width: 640px;
+  }
+
+  .journey-path {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .journey-stop {
+    display: flex;
+    align-items: baseline;
+    padding: 24px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+  }
+
+  .journey-stop:last-child {
+    border-bottom: none;
+  }
+
+  .journey-year {
+    font-family: "Times New Roman", Georgia, serif;
+    font-size: 18px;
+    width: 80px;
+    flex-shrink: 0;
+    opacity: 0.6;
+  }
+
+  .journey-city {
+    font-family: "Times New Roman", Georgia, serif;
+    font-size: 22px;
+    margin-right: 16px;
+    flex-shrink: 0;
+    font-style: italic;
+  }
+
+  .journey-desc {
+    font-size: 14px;
+    opacity: 0.7;
+    line-height: 1.7;
+  }
+
+  /* ===== Epilogue ===== */
+  .epilogue {
+    text-align: center;
+    padding: 160px 0;
+  }
+
+  .epilogue-quote {
+    font-family: "Times New Roman", Georgia, serif;
+    font-size: clamp(20px, 3vw, 28px);
+    line-height: 1.8;
+    letter-spacing: 0.01em;
+    margin-bottom: 48px;
+    font-style: italic;
+  }
+
+  .epilogue-text {
+    max-width: 600px;
+    margin: 0 auto;
+    font-size: 15px;
+    color: var(--text-secondary);
+    line-height: 2;
+  }
+
+  /* ===== Footer ===== */
+  footer {
+    border-top: 1px solid var(--line);
+    padding: 40px 0;
+    text-align: center;
+    font-size: 11px;
+    color: var(--text-secondary);
+    letter-spacing: 0.05em;
+    line-height: 1.8;
+  }
+
+  /* ===== Lightbox ===== */
+  .lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.95);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    cursor: zoom-out;
+  }
+
+  .lightbox.active {
+    display: flex;
+  }
+
+  .lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+  }
+
+  /* ===== Responsive ===== */
+  @media (max-width: 640px) {
+    section { padding: 80px 0; }
+    .container { padding: 0 24px; }
+    .gallery-grid { grid-template-columns: 1fr; gap: 48px; }
+    .journey-stop { flex-direction: column; gap: 4px; }
+    .journey-year { width: auto; }
+  }
+
+  /* ===== Fade In ===== */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== Hero ===== -->
+<section class="hero">
+  <div class="hero-exhibition-label">Guangzhou Academy of Fine Arts Museum · Digital Exhibition</div>
+  <h1 class="hero-title">Where Is Home?</h1>
+  <p class="hero-subtitle">Lyon Choi (Cai Li'an 蔡里安) and Realist Narratives of Overseas Chinese in Southeast Asia in the First Half of the 20th Century</p>
+  <p class="hero-english">A digital archival exhibition on the life and works of a Chinese-Vietnamese sculptor, watercolourist, composer and educator whose journey traced the cross-cultural currents of the monsoon coast.</p>
+  <div class="hero-meta">
+    <p>September 22 — November 3, 2023</p>
+    <p>Hall 1 & 2, GAFA Art Museum, Changgang Campus</p>
+    <p>Curated by Chen Xiaoyang & He Xiaote</p>
+  </div>
+  <div class="hero-scroll-hint">Scroll ↓</div>
+</section>
+
+<!-- ===== Preface ===== -->
+<section class="preface">
+  <div class="container fade-in">
+    <div class="section-label">Preface</div>
+    <h2 class="section-title">An Overlooked Legacy</h2>
+    <p class="preface-text">
+      Since 2016, the Art Museum of the Guangzhou Academy of Fine Arts has organized a series of exhibitions on realism in modern Chinese art history. Building upon Guangdong's deep history of overseas Chinese migration, the museum has gradually turned its attention to an earlier generation of Chinese artists who lived abroad — some even born overseas — whose return to China profoundly shaped the modernization of Chinese art education and disciplinary foundations that endure to this day.
+    </p>
+    <p class="preface-text">
+      Lyon Choi (Cai Li'an, 1912–2005) was one of the founding faculty of the sculpture department at the Guangzhou Academy of Fine Arts. His 1945 sculpture <em>Worker's Head</em> was selected for the First National Art Exhibition of China in 1949 — the first work by any teacher or student of the Academy to receive this honour. His itinerant life was deeply intertwined with the anti-colonial movements of 20th-century Asia. His quiet, empathetic engagement with labourers and refugees, rendered through rigorous French academic sculptural technique, crystallized into a singular body of work.
+    </p>
+    <p class="preface-text">
+      Beyond grand narratives of masterpieces and great artists, there exists another art history — everyday, compassionate, quiet. When we read the margins together with the mainstream, we come closer to a truer history: how individuals, through art, withstood the surging tides of fate and era.
+    </p>
+    <div class="preface-signature">
+      <p>Chen Xiaoyang</p>
+      <p>September 15, 2023</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Chronology ===== -->
+<section class="timeline-section">
+  <div class="container fade-in">
+    <div class="section-label">Chronology</div>
+    <h2 class="section-title">A Life Adrift</h2>
+    <div class="timeline">
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">1912</div>
+        <div class="timeline-event">Born in Saigon (Ho Chi Minh City), Vietnam. Ancestral home: Dongguan, Guangdong, China.</div>
+        <div class="timeline-place">Saigon</div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">1930</div>
+        <div class="timeline-event">Begins participating in the Vietnamese national independence movement.</div>
+        <div class="timeline-place">Vietnam</div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">1934</div>
+        <div class="timeline-event">Graduates from the Department of Sculpture, École des Beaux-Arts de l'Indochine (Saigon). Later that year, implicated in the failed anti-colonial activism of his teacher Le Van Tat, he is forced into exile in Hong Kong.</div>
+        <div class="timeline-place">Saigon → Hong Kong</div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">1936–1941</div>
+        <div class="timeline-event">Teaches at Juying Middle School and the Kowloon Art College. Driven by a strong realist sensibility, he participates in anti-Japanese cultural activities with theatre troupes, choral groups, and relief societies.</div>
+        <div class="timeline-place">Hong Kong</div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">1942</div>
+        <div class="timeline-event">After the fall of Hong Kong, he makes his way to Guangzhouwan (modern-day Zhanjiang), a French concession. He produces a large body of watercolours and patriotic war songs.</div>
+        <div class="timeline-place">Hong Kong → Guangzhouwan</div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">1944–1945</div>
+        <div class="timeline-event">Taking refuge in Guangzhouwan under the pseudonym "Li Ang," he collaborates with fellow teachers to compose the <em>West Wind Songbook</em> (Xifeng Geji).</div>
+        <div class="timeline-place">Guangzhouwan</div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">1945</div>
+        <div class="timeline-event">Sculpts <em>Worker's Head</em> — later selected for the First National Art Exhibition of China in 1949, the first GAFA-affiliated work to receive this honour.</div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">1947</div>
+        <div class="timeline-event">Expelled from Guangzhouwan by the colonial authorities after rescuing a friend, he returns to Hong Kong. In July, he holds the only solo exhibition of his lifetime at the Hong Kong Sung Sang Hotel — "over ten sculptures and dozens of watercolours." Creates <em>Youth</em>, modelled on his wife Lin Duli.</div>
+        <div class="timeline-place">Guangzhouwan → Hong Kong</div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">1948</div>
+        <div class="timeline-event">Joins the Human Art Association (Renjian Huahui 人间画会), a collective of progressive artists in Hong Kong, and participates in the art scenes of Hong Kong and Kowloon.</div>
+        <div class="timeline-place">Hong Kong</div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">1950</div>
+        <div class="timeline-event">A fire sweeps through his wooden-house neighbourhood, destroying over ten sculptures and hundreds of watercolours. Witnessing the grief of displaced residents, he creates the <em>Refugee Series</em> of sculpted heads: <em>Agony, Wailing, Despair, Fury, Struggle</em>.</div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">1950s</div>
+        <div class="timeline-event">Begins teaching at the South China People's College of Literature and Art, later relocates with the school to Wuhan, joining the sculpture department of the Central South School of Fine Arts.</div>
+        <div class="timeline-place">Guangzhou → Wuhan</div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">1958</div>
+        <div class="timeline-event">Returns to Guangzhou to teach in the sculpture department of the Guangzhou Academy of Fine Arts. As the lead professor of sculpture practice, he contributes to the development and revision of the department's teaching curriculum.</div>
+        <div class="timeline-place">Wuhan → Guangzhou</div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">1965</div>
+        <div class="timeline-event">Stops working full-time for health reasons. His later years are quiet and reclusive, beset by illness. He maintains his own studio, working mainly on experimental studies.</div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">2005</div>
+        <div class="timeline-event">Passes away in Guangzhou in the spring.</div>
+        <div class="timeline-place">Guangzhou</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== Gallery ===== -->
+<section>
+  <div class="container fade-in">
+    <div class="section-label">Gallery</div>
+    <h2 class="section-title">Landscapes and Faces</h2>
+
+    <div class="gallery">
+
+      <div class="gallery-item">
+        <div class="gallery-image-wrapper">
+          <img src="assets/10.jpg" alt="Watercolour landscape by Lyon Choi, 1940s, depicting trees and rural scenery" onclick="openLightbox(this.src)">
+        </div>
+        <div class="gallery-caption">
+          <div class="gallery-caption-title">Landscape, I</div>
+          <div>Watercolour, 1940s. Collection of GAFA Art Museum.</div>
+        </div>
+      </div>
+
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <div class="gallery-image-wrapper">
+            <img src="assets/11.jpg" alt="Watercolour landscape by Lyon Choi, 1940s, autumn trees and open field" onclick="openLightbox(this.src)">
+          </div>
+          <div class="gallery-caption">
+            <div class="gallery-caption-title">Landscape, II</div>
+            <div>Watercolour, 1940s.</div>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <div class="gallery-image-wrapper">
+            <img src="assets/12.jpg" alt="Watercolour landscape by Lyon Choi, 1940s, dense green trees" onclick="openLightbox(this.src)">
+          </div>
+          <div class="gallery-caption">
+            <div class="gallery-caption-title">Landscape, III</div>
+            <div>Watercolour, 1940s.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-item">
+        <div class="gallery-image-wrapper">
+          <img src="assets/7.jpg" alt="Plaster bust of a young woman, Female Head by Lyon Choi, collection of GAFA Art Museum" onclick="openLightbox(this.src)">
+        </div>
+        <div class="gallery-caption">
+          <div class="gallery-caption-title">Female Head</div>
+          <div>Plaster sculpture. Collection of GAFA Art Museum.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== Installation Views ===== -->
+<section style="background: #fafafa;">
+  <div class="container fade-in">
+    <div class="section-label">Installation</div>
+    <h2 class="section-title">Inside the Exhibition</h2>
+
+    <div class="gallery">
+      <div class="gallery-item">
+        <div class="gallery-image-wrapper">
+          <img src="assets/1.jpg" alt="White-walled gallery space with framed watercolours on display, Hall 1, GAFA Art Museum" onclick="openLightbox(this.src)">
+        </div>
+        <div class="gallery-caption">
+          <div class="gallery-caption-title">White Wall Gallery</div>
+          <div>Hall 1, GAFA Art Museum</div>
+        </div>
+      </div>
+
+      <div class="gallery-item">
+        <div class="gallery-image-wrapper">
+          <img src="assets/2.jpg" alt="Deep red gallery wall with Lyon Choi's bronze bust, archival manuscripts in display cases, and audio installation" onclick="openLightbox(this.src)">
+        </div>
+        <div class="gallery-caption">
+          <div class="gallery-caption-title">Red Wall: Manuscripts and Documents</div>
+          <div>Lyon Choi's bust portrait alongside archival manuscripts and documents in display cases.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Journey ===== -->
+<section class="journey-section">
+  <div class="container fade-in">
+    <div class="section-label">Journey</div>
+    <h2 class="section-title">Port Cities of the Monsoon Coast</h2>
+
+    <p class="journey-intro">
+      When we look beyond cultural and national boundaries, we see a network of port cities connected by sea lanes. The communities that moved between these cities — through daily life and educational exchange — created deeper, more complex cross-cultural networks.
+    </p>
+
+    <div class="journey-path">
+      <div class="journey-stop">
+        <div class="journey-year">1912</div>
+        <div class="journey-city">Saigon</div>
+        <div class="journey-desc">Place of birth. Graduate of the École des Beaux-Arts de l'Indochine, trained in French academic sculpture.</div>
+      </div>
+      <div class="journey-stop">
+        <div class="journey-year">1934</div>
+        <div class="journey-city">Hong Kong</div>
+        <div class="journey-desc">Exiled after anti-colonial activism. Taught at Juying Middle School and Kowloon Art College; engaged in anti-Japanese cultural work.</div>
+      </div>
+      <div class="journey-stop">
+        <div class="journey-year">1942</div>
+        <div class="journey-city">Guangzhouwan</div>
+        <div class="journey-desc">Fled after the fall of Hong Kong. Took refuge in the French concession, producing watercolours and the <em>West Wind Songbook</em>.</div>
+      </div>
+      <div class="journey-stop">
+        <div class="journey-year">1947</div>
+        <div class="journey-city">Hong Kong</div>
+        <div class="journey-desc">Returned, joined the Human Art Association. Most prolific period of sculpture; held his only solo exhibition.</div>
+      </div>
+      <div class="journey-stop">
+        <div class="journey-year">1951</div>
+        <div class="journey-city">Guangzhou → Wuhan</div>
+        <div class="journey-desc">Returned to China to teach. Relocated with the Central South School of Fine Arts to Wuhan. Helped build the sculpture department curriculum.</div>
+      </div>
+      <div class="journey-stop">
+        <div class="journey-year">1958</div>
+        <div class="journey-city">Guangzhou</div>
+        <div class="journey-desc">Returned to the Guangzhou Academy of Fine Arts, where he remained until his death. French academic sculpture education — routed through Vietnam — became the foundation of GAFA's realist sculptural training.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Epilogue ===== -->
+<section class="epilogue">
+  <div class="container fade-in">
+    <div class="section-label">Epilogue</div>
+    <p class="epilogue-quote">
+      The monsoon keeps its promise.<br>
+      Sail out and return with the seasons,<br>
+      And the monsoon, faithful,<br>
+      Brings your loved ones home.
+    </p>
+    <p class="epilogue-text">
+      The character xin (信) in the original Chinese exhibition title, <em>Jifeng Youxin</em> (季风有信), means "trust" or "promise." Along the monsoon coast of Southeast China, people made their living by the sea. Departure and return followed the rhythm of the monsoons, and communities held rituals to honour the winds. The monsoon's faithfulness was both a survival practice and an abiding belief.
+      <br><br>
+      Lyon Choi was not an isolated case. These artists, rarely in the spotlight, constitute another kind of art history — closer to lived experience, on the margins. They are the quiet, deep undercurrent of Sino-Western artistic exchange.
+    </p>
+  </div>
+</section>
+
+<!-- ===== Footer ===== -->
+<footer>
+  <div class="container">
+    <p>Digital Exhibition · Adapted from <em>Where Is Home? Lyon Choi and Realist Narratives of Overseas Chinese in Southeast Asia in the First Half of the 20th Century</em></p>
+    <p style="margin-top: 8px;">Original Exhibition © Art Museum of the Guangzhou Academy of Fine Arts · 2023</p>
+    <p style="margin-top: 8px; font-size: 10px;">English adaptation for digital presentation · For reference and educational use</p>
+  </div>
+</footer>
+
+<!-- ===== Lightbox ===== -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <img id="lightbox-img" src="" alt="">
+</div>
+
+<script>
+function openLightbox(src) {
+  document.getElementById('lightbox-img').src = src;
+  document.getElementById('lightbox').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeLightbox();
+});
+
+const observer = new IntersectionObserver(function(entries) {
+  entries.forEach(function(entry) {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, {
+  threshold: 0.1
+});
+
+document.querySelectorAll('.fade-in').forEach(function(el) {
+  observer.observe(el);
+});
+</script>
+
+</body>
+</html>
